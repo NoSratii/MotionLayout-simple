@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionSence xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        motion:constraintSetStart="@+id/startState"
+        motion:constraintSetEnd="@+id/endState"
+        motion:duration="1000">
+        <OnSwipe
+            motion:touchAnchorId="@+id/txtView"
+            motion:touchAnchorSide="bottom"
+            motion:dragDirection="dragRight"
+            />
+        <KeyFrameSet>
+
+            <KeyAttribute
+                android:scaleX="2"
+                android:scaleY="2"
+                motion:framePosition="50"
+                motion:target="@id/txtView"/>
+        </KeyFrameSet>
+
+    </Transition>
+
+
+    <ConstraintSet android:id ="@+id/startState">
+        <Constraint
+            android:id="@id/txtView"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toTopOf="parent">
+
+            <CustomAttribute
+                motion:attributeName="crossfade"
+                motion:customFloatValue="0"
+                />
+        </Constraint>
+
+
+    </ConstraintSet>
+
+
+    <ConstraintSet android:id ="@+id/minState">
+        <Constraint
+            android:id="@id/txtView"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent"
+            />
+
+    </ConstraintSet>
+
+    <ConstraintSet android:id ="@+id/EndState">
+        <Constraint
+            android:id="@id/txtView"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent"
+            >
+
+            <CustomAttribute
+                motion:attributeName="crossfade"
+                motion:customFloatValue="1"/>
+        </Constraint>
+
+    </ConstraintSet>
+
+</MotionSence>
